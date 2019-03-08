@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tic tac toe</title>
+	<link rel="stylesheet" href="index.css" />
+</head>
+<body>
+<div id="app">
+	<div>
+		<label>Mode:</label>
+		<input type="radio" v-model="mode" value="human" >human
+		<input type="radio" v-model="mode" value="AI" >AI
+	</div>
+	<div v-if="mode == 'AI'">
+		<label>Level:</label>
+		<input type="radio" v-model="level" value="easy">easy
+		<input type="radio" v-model="level" value="normal">normal
+		<input type="radio" v-model="level" value="unbeatable">unbeatable
+	</div>
+	<div>
+		<input type="button" v-on:click="newGame()" value="New Game" />
+	</div>
+	<div>
+		<span>{{gamer1SideFlag}}</span>
+		<label>gamer1: </label>
+		<input class="name" type="text" v-model="gamer1.name" />
+		<span v-show="!gameover && turn == gamer1.side">&lt;</span>
+	</div>
+	<div>
+		<span>{{gamer2SideFlag}}</span>
+		<label>gamer2: </label>
+		<span class="name" v-if="mode == 'AI'">{{gamer2.name}}</span>
+		<input class="name" v-else type="text" v-model="gamer2.name" />
+		<span v-show="!gameover && turn == gamer2Side">&lt;</span>
+	</div>
+	<div v-if="gameover">
+		<span>Game Over, {{gameResult}}</span>
+	</div>
+	<table class="board">
+		<tbody>
+			<tr v-for="(row, r) in board">
+				<td v-for="(cell,c) in row" :class="{empty: cell == 0, nought: cell == 1, cross: cell == 2}"
+					v-on:click="onCellClick(r,c)">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<script src="./vue.js"></script>
+<script src="./index.js"></script>
+</body>
+</html>

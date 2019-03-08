@@ -1,0 +1,26 @@
+div {
+	line-height: 30px;
+}
+
+table.board {
+	width: 150px;
+	height: 150px;
+	border-collapse:collapse;
+}
+
+table.board > tbody > tr > td {
+	border: 1px black solid;
+}
+
+td.nought {
+	background: url(./nought.png) no-repeat;
+}
+
+td.cross {
+	background: url(./cross.png) no-repeat;
+}
+
+.name {
+	width: 180px;
+	display: inline-block;
+}
