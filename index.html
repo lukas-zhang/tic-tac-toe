@@ -34,9 +34,6 @@
 		<input class="name" v-else type="text" v-model="gamer2.name" />
 		<span v-show="!gameover && turn == gamer2Side">&lt;</span>
 	</div>
-	<div v-if="gameover">
-		<span>Game Over, {{gameResult}}</span>
-	</div>
 	<table class="board">
 		<tbody>
 			<tr v-for="(row, r) in board">
@@ -47,6 +44,9 @@
 			</tr>
 		</tbody>
 	</table>
+	<div v-if="gameover">
+		<span>Game Over, {{gameResult}}</span>
+	</div>
 </div>
 <script src="./vue.js"></script>
 <script src="./index.js"></script>
