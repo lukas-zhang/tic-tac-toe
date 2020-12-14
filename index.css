@@ -3,21 +3,47 @@ div {
 }
 
 table.board {
-	width: 150px;
-	height: 150px;
+	width: 162px;
+	height: 162px;
 	border-collapse:collapse;
 }
 
 table.board > tbody > tr > td {
 	border: 1px black solid;
+	width: 50px;
+    height: 50px;
 }
 
-td.nought {
-	background: url(./nought.png) no-repeat;
+td.nought div {
+	width: 40px;
+    height: 40px;
+    background: black;
+    -moz-border-radius: 40px;
+    -webkit-border-radius: 40px;
+	border-radius: 40px;
+	margin: 5px;
 }
 
-td.cross {
-	background: url(./cross.png) no-repeat;
+td.cross div {
+	position: relative;
+    width: 40px;
+    height: 40px;
+}
+td.cross div::before,
+td.cross div::after {
+    position: absolute;
+    content: ' ';
+    background-color: black;
+    left: 20px;
+    width: 1px;
+	height: 40px;
+	padding-left: 10px;
+}
+td.cross div::before {
+    transform: rotate(45deg);
+}
+td.cross div::after {
+    transform: rotate(-45deg);
 }
 
 .name {
