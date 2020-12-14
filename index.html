@@ -42,6 +42,7 @@
 			<tr v-for="(row, r) in board">
 				<td v-for="(cell,c) in row" :class="{empty: cell == 0, nought: cell == 1, cross: cell == 2}"
 					v-on:click="onCellClick(r,c)">
+					<div></div>
 				</td>
 			</tr>
 		</tbody>
